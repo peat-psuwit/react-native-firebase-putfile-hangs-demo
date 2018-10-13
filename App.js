@@ -36,16 +36,18 @@ export default class App extends Component<Props> {
         </View>
 
         <View style={styles.buttonsView}>
-          <Button
-            title="Create test file"
-            onPress={this.handleCreatePressed}
-            style={styles.button}
-          />
-          <Button
-            title="Upload test file"
-            onPress={this.handleUploadPressed}
-            style={styles.button}
-          />
+          <View style={styles.button}>
+            <Button
+              title="Create test file"
+              onPress={this.handleCreatePressed}
+            />
+          </View>
+          <View style={styles.button}>
+            <Button
+              title="Upload test file"
+              onPress={this.handleUploadPressed}
+            />
+          </View>
         </View>
       </View>
     );
@@ -74,6 +76,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   button: {
-    margin: 10,
+    margin: 8,
   },
 });
