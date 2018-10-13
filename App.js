@@ -18,6 +18,9 @@ import {
 } from 'react-native';
 
 import RNFS from 'react-native-fs';
+import firebase from 'react-native-firebase';
+
+const storage = firebase.storage();
 
 type Props = {};
 type State = {
@@ -42,8 +45,17 @@ export default class App extends Component<Props, State> {
     }
   }
 
-  handleUploadPressed = () => {
+  handleUploadPressed = async () => {
+    this.setWorking(true);
 
+    try {
+      // $FlowFixMe: filePath is an Object? Really?
+      await storage.ref('/test.txt').putFile(TEST_FILE_PATH);
+      ToastAndroid.show('Test file uploaded.', ToastAndroid.SHORT);
+    }
+    finally {
+      this.setWorking(false);
+    }
   }
 
   setWorking(working: boolean) {
