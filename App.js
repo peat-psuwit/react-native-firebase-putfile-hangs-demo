@@ -38,7 +38,11 @@ export default class App extends Component<Props, State> {
     this.setWorking(true);
 
     try {
-      await RNFS.writeFile(TEST_FILE_PATH, 'This is a test.', 'utf8');
+      await RNFS.writeFile(
+        TEST_FILE_PATH,
+        `This is a test. ${new Date().toString()}`,
+        'utf8',
+      );
       ToastAndroid.show('Test file created.', ToastAndroid.SHORT);
     } finally {
       this.setWorking(false);
