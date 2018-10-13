@@ -7,23 +7,46 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
-
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+import {
+  ActivityIndicator,
+  Button,
+  Platform,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 
 type Props = {};
 export default class App extends Component<Props> {
+  handleCreatePressed = () => {
+
+  }
+
+  handleUploadPressed = () => {
+
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+        <Text style={styles.title}>RNFirebase PutFile URL bug</Text>
+
+        <View style={styles.activityIndicatorView}>
+          <ActivityIndicator size={48} />
+        </View>
+
+        <View style={styles.buttonsView}>
+          <Button
+            title="Create test file"
+            onPress={this.handleCreatePressed}
+            style={styles.button}
+          />
+          <Button
+            title="Upload test file"
+            onPress={this.handleUploadPressed}
+            style={styles.button}
+          />
+        </View>
       </View>
     );
   }
@@ -36,14 +59,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
-  welcome: {
+  title: {
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  activityIndicatorView: {
+    height: 96,
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  buttonsView: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  button: {
+    margin: 10,
   },
 });
