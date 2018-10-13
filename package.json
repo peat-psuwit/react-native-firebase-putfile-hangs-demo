@@ -8,8 +8,8 @@
   },
   "dependencies": {
     "flow-bin": "^0.78.0",
-    "react": "16.6.0-alpha.8af6728",
-    "react-native": "0.57.3",
+    "react": "16.5.0",
+    "react-native": "0.57.2",
     "react-native-firebase": "^5.0.0",
     "react-native-fs": "^2.11.18"
   },
